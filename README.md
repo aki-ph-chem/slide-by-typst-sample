@@ -54,6 +54,9 @@ pdfpc slides.pdf
 ├── slides.typ      # スライド本体
 ├── outline.md      # 内容と構成
 ├── AGENTS.md       # LLM 向けの作業ルール
+├── README.md       # 利用手順
+├── .opencode/
+│   └── skills/typst-slides/  # 他プロジェクトでも使えるスキル
 ├── assets/         # 画像などの素材（必要時に作成）
 ├── preview/        # 確認用 PNG（Git 管理外）
 └── slides.pdf      # ビルド成果物（Git 管理外）
@@ -83,3 +86,32 @@ pdfpc slides.pdf
 3. `nix develop -c typst compile slides.typ slides.pdf` を実行する
 4. PNG を生成して、はみ出しや改行を確認する
 5. 問題があれば修正して再ビルドする
+
+## スキルとして再利用する
+
+このリポジトリのレシピは `.opencode/skills/typst-slides/` にスキルとしてまとめています。
+
+- `SKILL.md`: 作業手順とルール
+- `templates/`: 新しいデッキ用のファイル一式
+- `scripts/scaffold.sh`: テンプレートを別ディレクトリへ展開するスクリプト
+
+新しいデッキを作る場合:
+
+```bash
+.opencode/skills/typst-slides/scripts/scaffold.sh ../my-slides
+```
+
+ビルドまで行う場合:
+
+```bash
+.opencode/skills/typst-slides/scripts/scaffold.sh ../my-slides --build
+```
+
+全プロジェクトで使う場合は、スキルをグローバル配置へコピーします。
+
+```bash
+mkdir -p ~/.config/opencode/skills
+cp -R .opencode/skills/typst-slides ~/.config/opencode/skills/
+```
+
+コピー後は opencode を再起動してください。

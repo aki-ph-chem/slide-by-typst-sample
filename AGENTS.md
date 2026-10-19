@@ -37,6 +37,7 @@ typst fonts | grep "Noto Sans CJK JP"
 ## ファイル構成
 
 - `README.md`: 利用手順
+- `.opencode/skills/typst-slides/`: 他プロジェクトへ展開できるスキルとテンプレート
 - `slides.typ`: スライド本体
 - `outline.md`: スライドの内容と構成
 - `assets/`: 画像などの素材
